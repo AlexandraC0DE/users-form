@@ -11,14 +11,18 @@ import useModal from './hooks/useModal';
 
 function App() {
 
- 
   const [ users, setUsers ] = useState([]);
-  const [isOpenModal, openModal, closeModal ] = useModal();
+  const [isOpenModal, openModal, closeModal ] = useModal(); 
 
   useEffect (() => {
     axios.get('https://users-crud1.herokuapp.com/users/')
     .then(res => setUsers(res.data));
-  }, [])
+  }, []);
+
+  const getUsers = () => {
+    axios.get('https://users-crud1.herokuapp.com/users/')
+      .then(res => setUsers(res.data));
+  }
  
 
   return (
@@ -35,7 +39,9 @@ function App() {
       closeModal={closeModal}
       title='Formulario'
       >
-      <UsersForm />
+      <UsersForm 
+          getUsers={getUsers}
+      />
       </Modal>
       <UsersList 
         users={users}

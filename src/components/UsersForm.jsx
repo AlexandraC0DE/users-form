@@ -1,18 +1,27 @@
+// import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
+import {  useState }  from 'react';
 import '../css/UsersForm.css';
+import axios from 'axios';
 
-const UserForm = () => {
+
+const defaultValues = { first_name: "", last_name: "", birthday: "", email: "", password: "" }
+
+const UserForm = ({ getUsers }) => {
 
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         mode: 'onTouched'
     });
    
-
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = user => {
+        console.log(user);
+        reset(defaultValues);
+    
+    axios.post('https://users-crud1.herokuapp.com/users/', user)
+        .then(() => getUsers());
     }
+   
     
     //Estado mostrar/ocultar password
     const [ passwordEye, setPasswordEye ] = useState(false);
@@ -37,7 +46,7 @@ const UserForm = () => {
 
                 <div>
                     <label>Apellido</label>
-                    <input 
+                    <input
                          type="text" {...register('last_name', {
                          required: true
                     })} />
@@ -45,7 +54,7 @@ const UserForm = () => {
 
                 <div>
                     <label>Fecha de nacimiento</label>
-                    <input 
+                    <input
                         type="date" {...register('birthday', {
                         required: true
                     })} />
@@ -53,8 +62,8 @@ const UserForm = () => {
 
                 <div>
                     <label>Email</label>
-                    <input 
-                         type="ext" {...register('email', {
+                    <input
+                         type="text" {...register('email', {
                          required: true,
                          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i //validación email
                         })} />
