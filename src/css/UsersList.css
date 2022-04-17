@@ -1,0 +1,92 @@
+
+.users{
+    font-weight: 700px;
+    font-size: 30px;
+    color: #0F0F2D;
+    text-align: start;
+    margin-left: 99px;
+    top: 96px;
+}
+.card-container{
+   display: flex;
+   float: left;
+}
+.card{
+   margin-top: 40px;
+   padding: 30px;
+   line-height: 2;
+   background: #FFFFFF;
+   border: 1px solid #E5E5E5;
+   border-radius: 6px; 
+   margin-left: 100px;
+   margin-right: -28px;
+   min-width: 325px;
+   min-height: 25px;
+}
+.name{
+    margin-left: 1%;
+}
+.birthday{
+    margin-top: 2px;
+}
+.email{
+    margin-left: 1%;
+    margin-bottom: 10px;
+}
+.gift > i{
+    margin-left: 1%;
+    transform: translatey(-10%);
+    margin-right: 8px;
+    /* font-size: 13px; */
+}
+.btn-delete-edit{
+    margin-top: -20px;
+    margin-right: -1%;
+    
+}
+.btn-delete{
+    display: row;
+    background: #D85D5D;
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+    border: 1px solid #D93F3F;
+    border-radius: 4px;
+    color: #E5E5E5;
+    font-size: 16px;
+}
+.btn-delete > i{
+    margin-left: 20%;
+    transform: translatey(-10%);
+    margin-right: 8px;
+    margin-top: 4px;
+}
+.btn-delete:hover{
+    background-color: #F7F7F7;
+    border: 1px solid #BDBDBD;
+    color: #BDBDBD;
+}
+.btn-edit{
+    background: #F7F7F7;
+    border: 1px solid #BDBDBD;
+    width: 33px;
+    height: 33px;
+    border-radius: 4px;
+    color: #BDBDBD;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.btn-edit > i{
+    margin-left: 20%;
+    transform: translatey(-10%);
+    margin-right: 8px;
+    margin-top: 4px;
+}
+.btn-edit:hover{
+    background-color: #D85D5D;
+    border: 1px solid #D93F3F;
+    color: white;
+}
+
+
+
