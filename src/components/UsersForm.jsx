@@ -15,7 +15,6 @@ const UserForm = ({ getUsers }) => {
     });
    
     const onSubmit = user => {
-        console.log(user);
         reset(defaultValues);
     
     axios.post('https://users-crud1.herokuapp.com/users/', user)
@@ -25,7 +24,7 @@ const UserForm = ({ getUsers }) => {
     
     //Estado mostrar/ocultar password
     const [ passwordEye, setPasswordEye ] = useState(false);
-
+ 
     const handlePasswordClick = () => {
         setPasswordEye(!passwordEye);
     }

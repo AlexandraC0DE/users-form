@@ -8,11 +8,13 @@ import UsersList from './components/UsersList';
 import useModal from './hooks/useModal';
 
 
-
 function App() {
 
   const [ users, setUsers ] = useState([]);
+  const [ userSelected, setUserSelected ] = useState(null);
   const [isOpenModal, openModal, closeModal ] = useModal(); 
+  const [isOpenModalEdit, openModalEdit, closeModalEdit ] = useModal(); 
+
 
   useEffect (() => {
     axios.get('https://users-crud1.herokuapp.com/users/')
@@ -24,6 +26,8 @@ function App() {
       .then(res => setUsers(res.data));
   }
  
+  const selectUser = user => setUserSelected(user);
+  console.log(userSelected);
 
   return (
     <div className="App">
@@ -45,7 +49,17 @@ function App() {
       </Modal>
       <UsersList 
         users={users}
+        selectUser={selectUser}
       />
+
+      <Modal
+        isOpen={isOpenModalEdit}
+        isOpenBtn={openModalEdit}
+        closeModal={closeModalEdit}
+        title='editar formulario'
+      >
+
+      </Modal>
 
     </div>
   )

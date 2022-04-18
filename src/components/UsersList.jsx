@@ -3,7 +3,8 @@ import React from 'react';
 import '../css/UsersList.css';
 
 
-const UsersList = ({ users }) => {
+const UsersList = ({ users, selectUser}) => {
+
 
     return (
         <div>
@@ -29,11 +30,16 @@ const UsersList = ({ users }) => {
                                     <p className='email'>{user.email}</p>
                                 </div>
 
+                                
                                 <div className='btn-delete-edit' align='right'>
                                     <button className='btn-delete'><i className="fa-solid fa-trash-can"></i></button>
-                                    <button className='btn-edit'><i className="fa-solid fa-pen"></i></button>
+
+                                    <button onClick={() => selectUser(user)}className='btn-edit'>
+                                        <i className="fa-solid fa-pen"></i>
+                                    </button>
+                                   
                                 </div>
-                            
+
                             </div>
                         </div>
                      </article>

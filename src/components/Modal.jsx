@@ -2,7 +2,7 @@ import React from 'react';
 import './Modal.css'
 
 
-const Modal = ({ isOpen, closeModal, title, children }) => {
+const Modal = ({ isOpen, closeModal, children }) => {
 
     const handleModalDialogClick = e => {
         e.stopPropagation();
