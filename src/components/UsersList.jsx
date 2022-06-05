@@ -5,7 +5,6 @@ import '../css/UsersList.css';
 
 const UsersList = ({ users, selectUser}) => {
 
-
     return (
         <div>
 
@@ -22,12 +21,14 @@ const UsersList = ({ users, selectUser}) => {
 
                                 <h3 className='name'>{`${user.first_name} ${user.last_name}`}</h3>
 
-                                <div className='birthday'> 
-                                    <p className='gift'><i className="fa-solid fa-gift"></i> {user.birthday}</p>
-                                </div>
-                            
                                 <div>
+                                    <span className='title-email'>CORREO</span>
                                     <p className='email'>{user.email}</p>
+                                </div>
+                                
+                                <div className='birthday'>
+                                    <span className='title-birthday'>CUMPLEAÑOS</span>
+                                    <p className='gift'><i className="fa-solid fa-gift"></i> {user.birthday}</p>
                                 </div>
 
                                 
