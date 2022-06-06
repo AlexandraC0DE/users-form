@@ -29,6 +29,14 @@ function App() {
   const selectUser = user => setUserSelected(user);
   console.log(userSelected);
 
+
+  const deleteUser = id => {
+    axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+     .then(() => getUsers());
+  };
+  
+  
+
   return (
     <div className="App">
 
@@ -50,6 +58,7 @@ function App() {
       <UsersList 
         users={users}
         selectUser={selectUser}
+        deleteUser={deleteUser}
       />
 
       <Modal

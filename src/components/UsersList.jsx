@@ -1,56 +1,50 @@
-import React from 'react';
+import React from "react";
 // import { useState } from 'react';
-import '../css/UsersList.css';
+import "../css/UsersList.css";
 
+const UsersList = ({ users, selectUser, deleteUser }) => {
+  return (
+    <div>
+      <h2 className="users">Usuarios</h2>
 
-const UsersList = ({ users, selectUser}) => {
+      <ul>
+        {users.map((user) => (
+          <article key={user.id}>
+            <div className="card-container">
+              <div className="card">
+                <h3 className="name">{`${user.first_name} ${user.last_name}`}</h3>
 
-    return (
-        <div>
+                <div>
+                  <span className="title-email">CORREO</span>
+                  <p className="email">{user.email}</p>
+                </div>
 
-            <h2 className='users'>
-                Usuarios 
-            </h2>
+                <div className="birthday">
+                  <span className="title-birthday">CUMPLEAÑOS</span>
+                  <p className="gift">
+                    <i className="fa-solid fa-gift"></i> {user.birthday}
+                  </p>
+                </div>
 
-            <ul>
-                {
-                    users.map(user => (
-                    <article key={user.id}>
-                        <div className='card-container'>
-                            <div className='card'>
+                <div className="btn-delete-edit" align="right">
+                  <button
+                    onClick={() => deleteUser(user.id)}
+                    className="btn-delete"
+                  >
+                    <i className="fa-solid fa-trash-can"></i>
+                  </button>
 
-                                <h3 className='name'>{`${user.first_name} ${user.last_name}`}</h3>
-
-                                <div>
-                                    <span className='title-email'>CORREO</span>
-                                    <p className='email'>{user.email}</p>
-                                </div>
-                                
-                                <div className='birthday'>
-                                    <span className='title-birthday'>CUMPLEAÑOS</span>
-                                    <p className='gift'><i className="fa-solid fa-gift"></i> {user.birthday}</p>
-                                </div>
-
-                                
-                                <div className='btn-delete-edit' align='right'>
-                                    <button className='btn-delete'><i className="fa-solid fa-trash-can"></i></button>
-
-                                    <button onClick={() => selectUser(user)}className='btn-edit'>
-                                        <i className="fa-solid fa-pen"></i>
-                                    </button>
-                                   
-                                </div>
-
-                            </div>
-                        </div>
-                     </article>
-                    ))
-                }
-            </ul>
-            
-        </div>
-       
-    );
+                  <button onClick={() => selectUser(user)} className="btn-edit">
+                    <i className="fa-solid fa-pen"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default UsersList;
